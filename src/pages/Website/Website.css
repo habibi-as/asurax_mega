@@ -1,0 +1,544 @@
+/* ASURAX: Japanese cyberpunk theme fonts */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Kosugi+Maru&family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ASURAX: Website page - Japanese theme */
+.website-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: transparent;
+  color: #F8F1E5;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  z-index: 5;
+}
+
+/* ASURAX: Japanese cyberpunk background - dark red & black theme */
+.website-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  background: transparent;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.website-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../../assets/backgrounds/japanese.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+}
+
+.website-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(215, 0, 46, 0.03) 2px,
+      rgba(215, 0, 46, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(215, 0, 46, 0.02) 2px,
+      rgba(215, 0, 46, 0.02) 4px
+    ),
+    linear-gradient(180deg, rgba(11, 11, 11, 0.85) 0%, rgba(11, 11, 11, 0.7) 100%),
+    radial-gradient(ellipse at 20% 30%, rgba(215, 0, 46, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(215, 0, 46, 0.15) 0%, transparent 50%);
+}
+
+/* Japanese city neon glow effect */
+.japanese-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(215, 0, 46, 0.05) 0px, rgba(215, 0, 46, 0.05) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(0deg, rgba(215, 0, 46, 0.05) 0px, rgba(215, 0, 46, 0.05) 1px, transparent 1px, transparent 20px);
+  opacity: 0.3;
+  z-index: 1;
+  box-shadow: 
+    inset 0 0 100px rgba(215, 0, 46, 0.1),
+    inset 0 0 200px rgba(215, 0, 46, 0.05);
+}
+
+.torii-gate-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 300px;
+  background: linear-gradient(to top,
+    rgba(215, 0, 46, 0.3) 0%,
+    rgba(215, 0, 46, 0.1) 50%,
+    transparent 100%
+  );
+  clip-path: polygon(
+    20% 100%, 30% 80%, 30% 60%, 70% 60%, 70% 80%, 80% 100%,
+    80% 100%, 70% 80%, 70% 60%, 30% 60%, 30% 80%, 20% 100%
+  );
+  opacity: 0.4;
+}
+
+.sakura-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sakura-petal {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, rgba(255, 192, 203, 0.8) 0%, rgba(255, 182, 193, 0.4) 100%);
+  border-radius: 50% 0 50% 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+/* ASURAX: Japanese ornamental patterns */
+.japanese-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(215, 0, 46, 0.05) 0px, rgba(215, 0, 46, 0.05) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(0deg, rgba(215, 0, 46, 0.05) 0px, rgba(215, 0, 46, 0.05) 1px, transparent 1px, transparent 20px);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* ASURAX: Add decorative edge patterns */
+.website-bg::before {
+  z-index: 0;
+}
+
+/* Left/Right decorative strips */
+.website-page::before,
+.website-page::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: -15;
+  background-image: 
+    repeating-linear-gradient(180deg, 
+      transparent 0px,
+      rgba(215, 0, 46, 0.1) 2px,
+      transparent 4px,
+      transparent 20px
+    ),
+    radial-gradient(ellipse at center, rgba(196, 164, 106, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.website-page::before {
+  left: 0;
+}
+
+.website-page::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* Container */
+.website-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Hero Section */
+.website-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Optional looping background video */
+.website-hero-video-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.website-hero-video,
+.bg-video,
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.45 !important;
+}
+
+.website-hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25) !important;
+  z-index: 0;
+}
+
+.hero-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(120deg, rgba(215, 0, 46, 0.1) 0px, rgba(215, 0, 46, 0.1) 2px, transparent 3px, transparent 8px);
+  background-size: 200% 100%;
+  opacity: 0.5;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(circle, rgba(248, 241, 229, 0.1) 0%, transparent 60%);
+  filter: blur(60px);
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.website-hero-content {
+  position: relative;
+  z-index: 5;
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.website-hero-title {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Kosugi Maru', serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #F8F1E5;
+  margin-bottom: 16px;
+  text-shadow: 
+    0 0 20px rgba(215, 0, 46, 0.5),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.05em;
+}
+
+.japanese-symbol-subtitle {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: rgba(215, 0, 46, 0.7);
+  margin-top: 12px;
+  text-shadow: 
+    0 0 15px rgba(215, 0, 46, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.1em;
+}
+
+.website-hero-subtitle {
+  font-size: 20px;
+  color: #d9cec0;
+  margin-bottom: 24px;
+}
+
+.kanji-accent {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 48px;
+  color: rgba(215, 0, 46, 0.6);
+  margin: 20px 0;
+  text-shadow: 0 0 30px rgba(215, 0, 46, 0.4);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.hero-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: #121212;
+  border: 2px solid #D7002E;
+  color: #F8F1E5;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-button:hover {
+  background: rgba(215, 0, 46, 0.2);
+  box-shadow: 0 0 20px rgba(215, 0, 46, 0.4);
+}
+
+/* ASURAX: Section Title - Shippori Mincho font */
+.website-section-title {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Kosugi Maru', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #F8F1E5;
+  margin-bottom: 32px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(215, 0, 46, 0.3);
+  letter-spacing: 0.05em;
+}
+
+/* Sections */
+.website-section {
+  padding: 60px 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: #1a1a1a;
+  border: 2px solid #D7002E;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 
+    0 12px 40px rgba(215, 0, 46, 0.2),
+    inset 0 0 20px rgba(215, 0, 46, 0.05);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: 
+    0 20px 60px rgba(215, 0, 46, 0.4),
+    inset 0 0 30px rgba(215, 0, 46, 0.1);
+}
+
+.service-title {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Kosugi Maru', serif;
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  color: #F8F1E5;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.service-button {
+  width: 100%;
+  background: rgba(215, 0, 46, 0.1);
+  border: 2px solid #D7002E;
+  color: #F8F1E5;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+}
+
+/* Featured 3D Section */
+.website-3d {
+  padding: 80px 0;
+}
+
+.featured-3d-card {
+  background: #121212;
+  border: 2px solid rgba(215, 0, 46, 0.3);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 0 40px rgba(215, 0, 46, 0.1);
+}
+
+.featured-3d-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #F8F1E5;
+  margin-bottom: 24px;
+  font-size: 20px;
+}
+
+.featured-3d-canvas {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.featured-3d-labels {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.label-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #F8F1E5;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+}
+
+.label-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D7002E;
+  box-shadow: 0 0 10px rgba(215, 0, 46, 0.6);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: #F8F1E5;
+  border: 2px solid #D7002E;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #0B0B0B;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 12px 40px rgba(215, 0, 46, 0.3);
+}
+
+.project-image {
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #efe7db, #e7ded0);
+}
+
+.project-title {
+  padding: 20px;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.project-button {
+  margin: 0 20px 20px;
+  width: calc(100% - 40px);
+  background: rgba(215, 0, 46, 0.1);
+  border: 2px solid #D7002E;
+  color: #0B0B0B;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+}
+
+/* Tech Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.tech-card {
+  background: #121212;
+  border: 1px solid rgba(215, 0, 46, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  border-color: #D7002E;
+  box-shadow: 0 0 20px rgba(215, 0, 46, 0.3);
+}
+
+.tech-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D7002E;
+  box-shadow: 0 0 10px rgba(215, 0, 46, 0.6);
+  flex-shrink: 0;
+}
+
+.tech-name {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #F8F1E5;
+  letter-spacing: 0.05em;
+}
+
+/* Contact Section */
+.website-contact {
+  padding: 80px 0;
+}
+
+.contact-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #121212;
+  border: 2px solid rgba(215, 0, 46, 0.3);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(215, 0, 46, 0.1);
+}
+
+.contact-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #F8F1E5;
+  margin-bottom: 32px;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

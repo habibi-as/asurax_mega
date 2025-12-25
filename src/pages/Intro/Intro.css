@@ -1,0 +1,121 @@
+/* Fullscreen container */
+.intro-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* ReactBits neon wave background */
+.intro-lines-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background: 
+    radial-gradient(1600px at 50% 10%, rgba(40,0,85,0.8) 0%, rgba(0,0,0,0.96) 70%);
+}
+
+/* Grain layer */
+.intro-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.08;
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.12) 0px,
+    rgba(255, 255, 255, 0.12) 2px,
+    transparent 2px,
+    transparent 36px
+  );
+}
+
+/* Center content */
+.intro-center {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Neon Pulse Glow */
+.pulse-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 42vmin;
+  height: 42vmin;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(162, 76, 255, 0.25),
+    rgba(75, 215, 255, 0.18) 60%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  animation: pulse 3.5s ease-in-out infinite;
+}
+
+/* Title */
+.intro-title {
+  font-weight: 900;                     /* even bolder */
+  font-size: clamp(32px, 6vw, 68px);     /* bigger on all screen sizes */
+  letter-spacing: 1.5px;
+  color: #ffffff;                        
+  text-shadow:
+    0 0 18px rgba(162, 76, 255, 0.55),   /* stronger glow */
+    0 0 36px rgba(75, 215, 255, 0.45),
+    0 0 5px rgba(0, 0, 0, 0.9);          /* dark outline look */
+}
+
+
+/* Subtitle */
+.intro-subtitle {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #cfe6ff;
+  opacity: 0.95;
+}
+
+/* Tap hint */
+.intro-hint {
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  animation: hintBlink 2.4s infinite ease-in-out;
+}
+
+/* Exit fade */
+.intro-fadeout {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  animation: fadeOut 0.6s forwards;
+  z-index: 99999;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; filter: blur(24px); }
+  50% { opacity: 1; filter: blur(30px); }
+}
+
+@keyframes hintBlink {
+  0%, 20%, 100% { opacity: 0.75; }
+  10% { opacity: 0.35; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

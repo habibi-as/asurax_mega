@@ -1,0 +1,136 @@
+/* HeroMetallic.css - paste into file and import in the component */
+.hero-metallic-root {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 0px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 10% 10%, rgba(30,20,50,0.55), transparent 20%),
+              radial-gradient(ellipse at 90% 80%, rgba(60,30,90,0.4), transparent 20%),
+              #07060a; /* fallback darker base */
+}
+
+/* background layer (LiquidEther) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* center content */
+.hero-center {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px;
+  text-align: center;
+  pointer-events: none; /* so nav remains clickable */
+}
+
+/* metallic logo container */
+.metallic-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  pointer-events: auto; /* enable pointer if necessary for effects */
+}
+
+/* put the painting in a constrained square so it sits nicely above title */
+.metallic-logo {
+  width: min(30vw, 360px);
+  height: min(30vw, 360px);
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,0.75));
+  will-change: transform, filter;
+}
+
+/* big sci-fi title */
+.hero-title {
+  margin: 0;
+  font-family: "Orbitron", "Rajdhani", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+  font-weight: 800;
+  font-size: clamp(44px, 6.6vw, 120px);
+  letter-spacing: 0.02em;
+  color: #e6f0ff;
+  text-transform: uppercase;
+  line-height: 0.9;
+  transform-origin: center;
+  position: relative;
+  z-index: 5;
+
+  /* neon outer glow */
+  text-shadow:
+    0 0 18px rgba(140,120,255,0.12),
+    0 0 34px rgba(110,90,255,0.14),
+    0 6px 30px rgba(0,0,0,0.6);
+}
+
+/* neon rim (thin outline) */
+.hero-title::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  width: 110%; height: 110%;
+  z-index: -1;
+  filter: blur(36px);
+  background: radial-gradient(closest-side, rgba(150,120,255,0.08), rgba(100,80,255,0.02));
+  border-radius: 8px;
+}
+
+/* metallic / dark text body - create internal darker contrast using mix-blend */
+.hero-title {
+  color: rgba(240,240,255,0.95);
+}
+
+/* reflection under title (subtle) */
+.hero-title::before {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  transform: translateY(24px) scaleY(-1);
+  opacity: 0.06;
+  filter: blur(10px);
+  -webkit-mask-image: linear-gradient(transparent, rgba(0,0,0,0.35));
+  mask-image: linear-gradient(transparent, rgba(0,0,0,0.35));
+}
+
+/* subtitle */
+.hero-sub {
+  margin: 0;
+  color: rgba(170,200,255,0.66);
+  font-size: clamp(14px, 1.6vw, 20px);
+  z-index: 5;
+}
+
+/* accent flares */
+.hero-accents { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.accent-flares {
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(30% 10% at 20% 20%, rgba(160,120,255,0.06), transparent 10%),
+    radial-gradient(30% 8% at 80% 80%, rgba(80,150,255,0.04), transparent 10%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* loading fallback */
+.metallic-loading {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+}
+
+/* responsive tuning */
+@media (max-width: 720px) {
+  .metallic-logo { width: 44vw; height: 44vw; }
+  .hero-title { font-size: clamp(36px, 10vw, 56px); }
+  .hero-sub { font-size: 13px; }
+}

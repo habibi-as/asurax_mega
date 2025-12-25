@@ -1,0 +1,336 @@
+.card-swap-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+/* Default Tech Green Style */
+.card-swap-item {
+  position: relative;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(6, 78, 59, 0.8) 0%, rgba(5, 46, 35, 0.6) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(16, 185, 129, 0.05) 2px,
+      rgba(16, 185, 129, 0.05) 4px
+    );
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(16, 185, 129, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  color: #e5e7eb;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.card-swap-item.active {
+  animation: cardFlip 0.6s ease-in-out;
+}
+
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: rotateY(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotateY(360deg) scale(1);
+  }
+}
+
+.card-swap-item:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 32px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.card-swap-item.active {
+  border-color: rgba(16, 185, 129, 0.8);
+  background: 
+    linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(5, 46, 35, 0.8) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(16, 185, 129, 0.1) 2px,
+      rgba(16, 185, 129, 0.1) 4px
+    );
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 40px rgba(16, 185, 129, 0.5);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.card-swap-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.card-swap-label {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-swap-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C4A46A;
+  box-shadow: 0 0 10px rgba(196, 164, 106, 0.8);
+}
+
+/* ALL CARDS USE NEUTRAL PARCHMENT BASE */
+/* Theme-specific accents only inside borders */
+
+/* Default: All cards inherit parchment base */
+.card-swap-item {
+  /* Parchment base is already set above, this ensures override */
+  background: 
+    linear-gradient(135deg, rgba(234, 221, 200, 0.15) 0%, rgba(234, 221, 200, 0.08) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 94, 60, 0.1) 2px,
+      rgba(139, 94, 60, 0.1) 4px
+    ) !important;
+  border: 2px solid rgba(139, 94, 60, 0.3) !important;
+  color: #EADDC8 !important;
+}
+
+/* Ashore - Subtle ocean accent border only */
+.card-swap-item.card-theme-ashore {
+  border: 2px solid rgba(14, 165, 255, 0.3) !important;
+}
+
+.card-swap-item.card-theme-ashore:hover {
+  border-color: rgba(14, 165, 255, 0.5) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4), 
+    0 0 15px rgba(14, 165, 255, 0.2) !important;
+}
+
+.card-swap-item.card-theme-ashore.active {
+  border-color: rgba(14, 165, 255, 0.7) !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.5), 
+    0 0 25px rgba(14, 165, 255, 0.4) !important;
+}
+
+.card-swap-item.card-theme-ashore:hover {
+  border-color: rgba(14, 165, 255, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 255, 0.3);
+}
+
+.card-swap-item.card-theme-ashore.active {
+  border-color: rgba(14, 165, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 30px rgba(14, 165, 255, 0.5);
+}
+
+/* Oath Hunt - Double border accent only */
+.card-swap-item.card-theme-oath {
+  border: 3px double rgba(139, 94, 60, 0.5) !important;
+}
+
+.card-swap-item.card-theme-oath:hover {
+  border-color: rgba(196, 164, 106, 0.7) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(196, 164, 106, 0.3) !important;
+}
+
+.card-swap-item.card-theme-oath.active {
+  border-color: rgba(196, 164, 106, 0.9) !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(196, 164, 106, 0.5) !important;
+}
+
+/* Seventh Choir - Horror outline accent only */
+.card-swap-item.card-theme-choir {
+  border: 2px solid rgba(196, 164, 106, 0.4) !important;
+  position: relative;
+}
+
+.card-swap-item.card-theme-choir::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 1px solid rgba(196, 164, 106, 0.2);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-swap-item.card-theme-choir:hover::before {
+  opacity: 1;
+}
+
+.card-swap-item.card-theme-choir:hover {
+  border-color: rgba(196, 164, 106, 0.7);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(196, 164, 106, 0.4);
+}
+
+.card-swap-item.card-theme-choir.active {
+  border-color: rgba(196, 164, 106, 0.9);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(196, 164, 106, 0.6);
+}
+
+/* Fear Around - Rust accent border only */
+.card-swap-item.card-theme-fear {
+  border: 2px solid rgba(139, 69, 19, 0.5) !important;
+  position: relative;
+}
+
+.card-swap-item.card-theme-fear::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.1) 2px,
+      rgba(139, 69, 19, 0.1) 4px
+    );
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.card-swap-item.card-theme-fear:hover {
+  border-color: rgba(255, 34, 68, 0.7);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 34, 68, 0.3),
+    inset 0 0 15px rgba(139, 69, 19, 0.3);
+}
+
+.card-swap-item.card-theme-fear.active {
+  border-color: rgba(255, 34, 68, 0.9);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(255, 34, 68, 0.5),
+    inset 0 0 20px rgba(139, 69, 19, 0.4);
+}
+
+/* RED01 - Only neon glow effects, keeps parchment base */
+.card-swap-item.card-theme-cyberpunk {
+  border: 2px solid rgba(215, 0, 46, 0.3) !important;
+  font-family: 'Courier New', monospace !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+}
+
+.card-swap-item.card-theme-cyberpunk:hover {
+  border-color: rgba(215, 0, 46, 0.6) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(215, 0, 46, 0.5) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 54, 0.8) !important;
+}
+
+.card-swap-item.card-theme-cyberpunk.active {
+  border-color: rgba(215, 0, 46, 0.9) !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(215, 0, 46, 0.7) !important;
+  text-shadow: 
+    0 0 10px rgba(255, 0, 54, 1),
+    0 0 20px rgba(255, 0, 54, 0.6) !important;
+}
+
+.card-swap-item.card-theme-cyberpunk.active .card-swap-indicator {
+  background: #FF0036 !important;
+  box-shadow: 
+    0 0 15px rgba(255, 0, 54, 1),
+    0 0 30px rgba(255, 0, 54, 0.8) !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive: Horizontal swipeable bar on small screens */
+@media (max-width: 768px) {
+  .card-swap-container {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px;
+    gap: 12px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card-swap-container::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .card-swap-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .card-swap-container::-webkit-scrollbar-thumb {
+    background: rgba(196, 164, 106, 0.5);
+    border-radius: 2px;
+  }
+
+  .card-swap-item {
+    min-width: 140px;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+

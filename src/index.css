@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Smooth scrolling for the entire app */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Disable smooth scrolling when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+.full-screen { width: 100vw; min-height: 100vh; }
+
+/* ASURAX: Page Header Logo */
+.page-header-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px; /* space below navbar */
+  margin-bottom: 40px;
+}
+
+.page-header-logo-img {
+  width: 120px;
+  height: auto;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.45));
+  pointer-events: none;
+}
+
+/* Global video background class */
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45 !important;
+}
+
+/* MOBILE AUTO-SCALE MODE */
+@media (max-width: 768px) {
+  * {
+    transform-origin: center top !important;
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
+  .section, .hero, .gaming-content, .game-section {
+    padding: 16px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  img, video {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Fix clipped buttons */
+  .cta, button, a {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+
+  /* Fix floating elements in Gaming page */
+  .gaming-sidebar {
+    position: relative !important;
+    width: 100% !important;
+    transform: none !important;
+    margin-bottom: 12px;
+  }
+
+  .gaming-content {
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* Ensure content doesn't overflow */
+main,
+.hero-section,
+.gallery-grid,
+.gaming-featured-scroll {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Improved scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

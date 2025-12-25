@@ -1,0 +1,20 @@
+/* src/components/Bits/FloatingLines.css */
+.floating-lines-container {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* absolute so it overlays nicely inside your intro section */
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* keep interactions to page elements, unless you want pointer interaction */
+  z-index: 0;
+}
+
+/* make sure canvas fills container and preserves pixel-perfect rendering */
+.floating-lines-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

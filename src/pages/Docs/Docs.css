@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@600&family=Cinzel+Decorative:wght@700;900&display=swap');
+
+.docs-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  color: #3d2f1d;
+  font-family: 'Cinzel Decorative', serif;
+  overflow-x: hidden;
+}
+
+/* Generic gallery grid for auto-loaded images */
+.gallery-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.gallery-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f0e6d5;
+  display: block;
+}
+
+.empty-message {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ASURAX: Egyptian Background with texture, gold highlights, hieroglyphs */
+.docs-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  background: #F7F2E4;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.docs-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url('../../assets/backgrounds/egyptian.jpg'),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(196, 164, 106, 0.03) 40px,
+      rgba(196, 164, 106, 0.03) 80px
+    );
+  background-size: cover, 200px 200px;
+  background-position: center, 0 0;
+  opacity: 0.3;
+  filter: brightness(1.1) contrast(0.9) sepia(0.2);
+}
+
+/* Gold highlights */
+.docs-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(196, 164, 106, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(196, 164, 106, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(247, 242, 228, 0.95) 0%, rgba(234, 221, 200, 0.98) 100%);
+  z-index: 1;
+}
+
+/* Darker border edges */
+.docs-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  border: 40px solid rgba(30, 58, 95, 0.15);
+  pointer-events: none;
+  z-index: -15;
+  box-shadow: 
+    inset 0 0 100px rgba(30, 58, 95, 0.1),
+    inset 0 0 200px rgba(30, 58, 95, 0.05);
+}
+
+.papyrus-texture {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(196, 164, 106, 0.15) 0 2px, transparent 3px),
+    repeating-linear-gradient(0deg, rgba(196, 164, 106, 0.08) 0 1px, transparent 2px),
+    radial-gradient(ellipse at 30% 20%, rgba(234, 221, 200, 0.8) 0%, rgba(247, 242, 228, 1) 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(234, 221, 200, 0.8) 0%, rgba(247, 242, 228, 1) 50%);
+  opacity: 0.9;
+}
+
+.pyramid-silhouette {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    rgba(30, 58, 95, 0.1) 30%,
+    rgba(30, 58, 95, 0.2) 100%
+  );
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.3;
+}
+
+/* Black palm leaf silhouettes - dark, not blurred */
+.palm-leaves-left,
+.palm-leaves-right {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-image: 
+    radial-gradient(ellipse at 20% 10%, rgba(0, 0, 0, 0.4) 0%, transparent 40%),
+    radial-gradient(ellipse at 30% 30%, rgba(0, 0, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 60%, rgba(0, 0, 0, 0.25) 0%, transparent 60%);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.palm-leaves-left {
+  left: 0;
+}
+
+.palm-leaves-right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* Container */
+.docs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Hero Section */
+.docs-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.docs-hero-content {
+  max-width: 800px;
+}
+
+.docs-hero-title {
+  font-family: 'Kufam', 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  color: #2c2417;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  text-shadow: 
+    2px 2px 0px rgba(196, 164, 106, 0.3),
+    4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.docs-hero-subtitle {
+  font-size: 20px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* Section Title - Kufam for large headers */
+.docs-section-title {
+  font-family: 'Kufam', 'Cinzel Decorative', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.docs-title {
+  font-family: 'Kufam', 'Cinzel Decorative', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* Sections */
+.docs-section {
+  padding: 60px 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Categories Grid */
+.docs-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.docs-category-card {
+  background: #EADDC8;
+  border: 3px solid #C4A46A;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 24px rgba(196, 164, 106, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  cursor: pointer;
+}
+
+.category-header {
+  height: 24px;
+  background: repeating-linear-gradient(90deg, #C4A46A 0 10px, transparent 10px 14px);
+  border-bottom: 2px solid #C4A46A;
+}
+
+.category-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.category-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.category-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #3f331f;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.category-button {
+  width: 100%;
+  background: #F7F2E4;
+  border: 2px solid #C4A46A;
+  color: #3f331f;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+}
+
+/* Library Grid */
+.docs-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.docs-library-card {
+  background: #EADDC8;
+  border: 3px solid #C4A46A;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(196, 164, 106, 0.25);
+  transition: all 0.3s ease;
+}
+
+.library-card-header {
+  height: 20px;
+  background: repeating-linear-gradient(90deg, #C4A46A 0 10px, transparent 10px 14px);
+}
+
+.library-card-content {
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.library-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.library-text {
+  flex: 1;
+}
+
+.library-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.library-description {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.library-card-footer {
+  padding: 16px 20px;
+  border-top: 2px solid rgba(75, 215, 255, 0.3);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* Collections */
+.docs-collections {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.docs-collection {
+  margin-bottom: 32px;
+}
+
+.collection-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.collection-divider {
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #4BD7FF 0 10px, transparent 10px 14px);
+  margin-bottom: 16px;
+}
+
+.collection-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #4BD7FF #1e293b;
+}
+
+.collection-item {
+  min-width: 240px;
+  background: #1e293b;
+  border: 2px solid #4BD7FF;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.collection-item-image {
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+.collection-item-title {
+  padding: 12px;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+/* Scroll Viewer */
+.docs-scroll-viewer {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1e293b, #0f172a);
+  border: 4px solid #4BD7FF;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(75, 215, 255, 0.3);
+  overflow: hidden;
+}
+
+.scroll-viewer-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.scroll-text {
+  font-family: 'Cinzel Decorative', serif;
+  color: #3f331f;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Download Grid */
+.docs-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.docs-download-card {
+  background: #EADDC8;
+  border: 3px solid #C4A46A;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  box-shadow: 0 8px 24px rgba(196, 164, 106, 0.25);
+}
+
+.download-card-header {
+  height: 80px;
+  background: repeating-linear-gradient(90deg, #C4A46A 0 10px, transparent 10px 14px);
+}
+
+.download-card-title {
+  padding: 20px;
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #3f331f;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Contact Section */
+.docs-contact {
+  padding: 80px 0;
+}
+
+.docs-contact-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #EADDC8;
+  border: 4px solid #C4A46A;
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(196, 164, 106, 0.3);
+}
+
+.contact-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #3f331f;
+  margin-bottom: 32px;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .docs-categories-grid,
+  .docs-library-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .docs-download-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vertical Layouts */
+.docs-categories-vertical,
+.docs-library-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.docs-category-card,
+.docs-file-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(108, 198, 143, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.cat-left,
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cat-icon {
+  font-size: 28px;
+}
+
+.cat-title,
+.file-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.file-type {
+  font-size: 14px;
+  opacity: 0.8;
+}

@@ -1,0 +1,31 @@
+.startup-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+.startup-text {
+  font-size: clamp(28px, 4vw, 60px);
+  font-weight: 900;
+  color: white;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* unrevealed glitch characters */
+.startup-encrypted {
+  color: #8a3bff;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+/* final revealed letters */
+.startup-revealed {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(153, 78, 255, 0.6);
+}

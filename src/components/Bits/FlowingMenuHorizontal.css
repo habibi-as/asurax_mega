@@ -1,0 +1,58 @@
+.menuX-container {
+  width: 100%;
+  height: 90px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.menuX-track {
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.menuX-item {
+  position: relative;
+  cursor: pointer;
+  padding: 20px 0;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.menuX-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.menuX-image {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  filter: brightness(0.85);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+  transition: 0.4s ease;
+}
+
+.menuX-item:hover .menuX-text {
+  color: #4BD7FF;
+}

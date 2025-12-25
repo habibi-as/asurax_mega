@@ -1,0 +1,182 @@
+/* 
+ * ASURAX Color System
+ * Using a cinematic dark theme with blue/violet accents
+ */
+
+:root {
+  /* Base Colors */
+  --color-bg-dark: #0E0E11;
+  --color-bg-darker: #0A0A0D;
+  --color-bg-light: #1A1A1F;
+  --color-bg-lighter: #22222A;
+  
+  /* Accent Colors */
+  --color-primary: #3B82F6;       /* Blue-500 */
+  --color-primary-hover: #2563EB; /* Blue-600 */
+  --color-secondary: #8B5CF6;     /* Violet-500 */
+  --color-secondary-hover: #7C3AED; /* Violet-600 */
+  
+  /* Text Colors */
+  --color-text-primary: #F3F4F6;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+  
+  /* Utility Colors */
+  --color-border: #2D3748;
+  --color-border-light: #374151;
+  --color-overlay: rgba(0, 0, 0, 0.8);
+  --color-overlay-light: rgba(255, 255, 255, 0.05);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  --gradient-dark: linear-gradient(135deg, var(--color-bg-darker), var(--color-bg-dark));
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-primary: 0 0 15px rgba(59, 130, 246, 0.5);
+  --shadow-secondary: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Apply base styles */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+}
+
+/* Text styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-primary);
+}
+
+/* Cards */
+.card {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Navigation */
+.nav-link {
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--color-overlay-light);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Form elements */
+input, textarea, select {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Utility classes */
+.bg-dark {
+  background-color: var(--color-bg-dark);
+}
+
+.bg-darker {
+  background-color: var(--color-bg-darker);
+}
+
+.bg-light {
+  background-color: var(--color-bg-light);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
